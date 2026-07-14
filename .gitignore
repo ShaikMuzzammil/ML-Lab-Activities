@@ -1,0 +1,23 @@
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# Note: outputs/*.png folders ARE tracked — they contain auto-saved figures
+# from each notebook run (see "Running in Google Colab" section in README).
