@@ -1,77 +1,51 @@
-# Experiment 3: Decision Tree Classifier
+# 03-Decision-Tree-Classifier
 
 > **Course:** 23CSE301 — Machine Learning Lab  
 > **Topic:** Decision Tree with Entropy & Gini splitting criteria  
-> **Dataset:** `diabetes.csv (Pima Indians Diabetes)`  
-> **Lab Book Reference:** §7 (page 26–30)
+> **Lab Book Reference:** §7 Decision Tree Classifier, page 26–30
 
 ---
 
-## 📖 Overview
+## 📓 Notebooks
 
-Build a **Decision Tree Classifier** on the diabetes dataset using `criterion='entropy'` (information gain). Compare with Gini impurity, visualise the tree, inspect feature importance, and study the overfitting behaviour by varying `max_depth`.
+### Main
+| Notebook | Topic | Dataset |
+|----------|-------|---------|
+| `03_Decision_Tree_Classifier.ipynb` | Decision Tree on Pima Indians Diabetes | `datasets/diabetes.csv` (768 rows) |
 
-## 🧠 Key Concepts
+### Exercises (§7.6, page 30)
+| Notebook | Lab Book Exercise | Dataset |
+|----------|-------------------|---------|
+| `03_Q1_House_Purchase.ipynb` | §7.6 Q1: age + income → buys a house | `datasets/house_purchase.csv` (400 rows) |
+| `03_Q2_Go_Outdoors.ipynb` | §7.6 Q2: weather → "go out" vs "stay in" | `datasets/weather_play.csv` (14 rows, classic play-tennis) |
 
-- Entropy & Information Gain vs Gini impurity
-- Recursive binary splitting of feature space
-- Tree visualisation with `sklearn.tree.plot_tree`
-- Pruning via `max_depth` to control overfitting
+## 📊 Datasets Folder
 
-## 📁 Files in this Folder
+| File | Rows | Cols | Description |
+|------|------|------|-------------|
+| `diabetes.csv` | 768 | 9 | Pima Indians Diabetes (no header) |
+| `house_purchase.csv` | 400 | 3 | `age, income, buys_house` — synthetic |
+| `weather_play.csv` | 14 | 5 | `outlook, temperature, humidity, wind, decision` — classic Quinlan play-tennis dataset |
 
-| File | Description |
-|------|-------------|
-| `03_Decision_Tree_Classifier.ipynb` | The Jupyter notebook for this experiment (with executed outputs) |
-| `README.md`   | This file |
-
-Datasets are **not** duplicated here — they live in `../datasets/`.
-
-## ▶️ How to Run
-
-### Option A — Interactive Jupyter
-
-```bash
-# from the repository root
-pip install -r requirements.txt
-jupyter notebook 03-Decision-Tree-Classifier/03_Decision_Tree_Classifier.ipynb
-```
-
-### Option B — Headless execution (CI / batch)
-
-```bash
-# from the repository root
-jupyter nbconvert --to notebook --execute \
-  03-Decision-Tree-Classifier/03_Decision_Tree_Classifier.ipynb \
-  --output 03-Decision-Tree-Classifier/03_Decision_Tree_Classifier_executed.ipynb
-```
-
-### Option C — Convert to HTML / PDF for submission
-
-```bash
-jupyter nbconvert --to html 03-Decision-Tree-Classifier/03_Decision_Tree_Classifier.ipynb
-jupyter nbconvert --to pdf  03-Decision-Tree-Classifier/03_Decision_Tree_Classifier.ipynb   # requires LaTeX
-```
+## 🖼️ Outputs Folder
+- `figure_001.png` … `004.png` — main notebook (CM, tree, importance, depth-vs-accuracy)
+- `Q1_House_Purchase_figure_001.png` … `002.png` — decision tree + boundary
+- `Q2_Go_Outdoors_figure_001.png` — tree visualisation
 
 ## 🔍 Expected Output
+| Notebook | Accuracy |
+|----------|---------:|
+| Main (entropy) | ≈ 0.71 |
+| Q1 House Purchase | ~0.80 |
+| Q2 Weather Play | 1.00 (full data; 14 rows is fully memorised) |
 
-Accuracy ≈ 0.72 (entropy) matching Lab Book page 30; deeper trees overfit (train acc → 1.0).
-
-## 📝 Exercises
-
-See the final section of the notebook for the exercises specified in the Lab Activity Book
-(§7 (page 26–30)). Submit your Colab link or `.ipynb` file as instructed.
-
-## 🔗 References
-
-- Lab Activity Book (23CSE301), §7 (page 26–30).
-- Scikit-learn user guide: <https://scikit-learn.org/stable/user_guide.html>
-
----
+## ▶️ How to Run
+```bash
+jupyter notebook 03-Decision-Tree-Classifier/<notebook>.ipynb
+```
 
 ## ☁️ Run in Google Colab
-
-1. Upload the entire `ML-Lab-Activities-Complete` folder to your Google Drive.
-2. In Colab: `File → Open notebook → Google Drive → 03-Decision-Tree-Classifier/03_Decision_Tree_Classifier.ipynb`.
-3. The **first code cell** auto-mounts Drive, chdir's to this experiment's folder,
-   and creates an `outputs/` subfolder. All figures are auto-saved there.
+1. Upload `ML-Lab-Activities` folder to your Google Drive.
+2. Open `03-Decision-Tree-Classifier/<notebook>.ipynb` from Drive in Colab.
+3. The first code cell auto-mounts Drive, chdir's to this folder, creates
+   `outputs/`, and saves all figures there.

@@ -1,0 +1,15 @@
+outlook,temperature,humidity,wind,decision
+Sunny,Hot,High,Weak,Go Out
+Sunny,Hot,High,Strong,Stay In
+Overcast,Hot,High,Weak,Go Out
+Rain,Mild,High,Weak,Go Out
+Rain,Cool,Normal,Weak,Go Out
+Rain,Cool,Normal,Strong,Stay In
+Overcast,Cool,Normal,Strong,Go Out
+Sunny,Mild,High,Weak,Stay In
+Sunny,Cool,Normal,Weak,Go Out
+Rain,Mild,Normal,Weak,Go Out
+Sunny,Mild,Normal,Strong,Go Out
+Overcast,Mild,High,Strong,Go Out
+Overcast,Hot,Normal,Weak,Go Out
+Rain,Mild,High,Strong,Stay In
