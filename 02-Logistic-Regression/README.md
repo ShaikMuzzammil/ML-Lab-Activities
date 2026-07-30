@@ -1,77 +1,70 @@
-# Experiment 2: Logistic Regression
+02-Logistic-Regression
+=======================
 
-> **Course:** 23CSE301 — Machine Learning Lab  
-> **Topic:** Binary Classification with Logistic Regression  
-> **Dataset:** `diabetes.csv (Pima Indians Diabetes — 768 rows)`  
-> **Lab Book Reference:** §6 (page 21–25)
+Lab Book Reference: Section 6 Logistic Regression (page 21-25)
 
----
 
-## 📖 Overview
+Notebooks
+---------
 
-Train a **Logistic Regression** classifier on the Pima Indians Diabetes dataset to predict whether a patient has diabetes based on 8 medical features. Evaluate with accuracy, precision, recall, F1, ROC-AUC. Visualise the confusion matrix, ROC curve, and feature coefficients.
+02_Logistic_Regression.ipynb
+    Main notebook.
+    Logistic regression on Pima Indians Diabetes (diabetes.csv, 768 rows).
+    Predict whether a patient has diabetes (label=1) from 8 medical
+    predictors. Evaluate with accuracy, precision, recall, F1, ROC-AUC.
 
-## 🧠 Key Concepts
+02_Q1_Graduate_Admission.ipynb
+    Lab Book Section 6.6 Exercise 1 (page 25).
+    Predict admission to graduate school from GRE, GPA, and undergraduate
+    institution rank (1=highest prestige).
+    Dataset: graduate_admission.csv (400 rows).
 
-- Sigmoid function: σ(z) = 1 / (1 + e⁻ᶻ)
-- Maximum likelihood estimation, cross-entropy loss
-- StandardScaler for feature normalisation
-- Threshold tuning & ROC-AUC for binary classification
+02_Q2_Disease_Prediction.ipynb
+    Lab Book Section 6.6 Exercise 2 (page 25).
+    Predict whether a patient is susceptible to a certain disease.
+    Dataset: medical_disease.csv.
 
-## 📁 Files in this Folder
+02_Q3_Retail_Product_Prediction.ipynb
+    Lab Book Section 6.6 Exercise 3 (page 25).
+    Predict which product a customer is most likely to buy.
+    Dataset: retail_product_prediction.csv.
 
-| File | Description |
-|------|-------------|
-| `02_Logistic_Regression.ipynb` | The Jupyter notebook for this experiment (with executed outputs) |
-| `README.md`   | This file |
 
-Datasets are **not** duplicated here — they live in `../datasets/`.
+Datasets
+--------
 
-## ▶️ How to Run
+diabetes.csv                    768 rows x 9 cols   Pima Indians Diabetes
+                                                     (no header - matches
+                                                     lab book format)
+graduate_admission.csv          400 rows x 4 cols   admit, gre, gpa, rank
+medical_disease.csv             500 rows x 8 cols   age, gender, bmi,
+                                                     blood_pressure,
+                                                     cholesterol, smoker,
+                                                     exercise, disease
+retail_product_prediction.csv   500 rows x 12 cols  customer behaviour
+                                                     features + will_purchase
+iris.csv                        150 rows x 5 cols   sepal_length,
+                                                     sepal_width,
+                                                     petal_length,
+                                                     petal_width, species
+                                                     (for ad-hoc use)
 
-### Option A — Interactive Jupyter
 
-```bash
-# from the repository root
-pip install -r requirements.txt
-jupyter notebook 02-Logistic-Regression/02_Logistic_Regression.ipynb
-```
+How to Run
+----------
 
-### Option B — Headless execution (CI / batch)
+jupyter notebook 02-Logistic-Regression/<notebook>.ipynb
 
-```bash
-# from the repository root
+Headless:
 jupyter nbconvert --to notebook --execute \
-  02-Logistic-Regression/02_Logistic_Regression.ipynb \
-  --output 02-Logistic-Regression/02_Logistic_Regression_executed.ipynb
-```
+  02-Logistic-Regression/<notebook>.ipynb \
+  --output <notebook>.ipynb
 
-### Option C — Convert to HTML / PDF for submission
 
-```bash
-jupyter nbconvert --to html 02-Logistic-Regression/02_Logistic_Regression.ipynb
-jupyter nbconvert --to pdf  02-Logistic-Regression/02_Logistic_Regression.ipynb   # requires LaTeX
-```
+Run in Google Colab
+-------------------
 
-## 🔍 Expected Output
-
-Accuracy ≈ 0.79 on the 20 % test set, matching the Lab Book (page 24).
-
-## 📝 Exercises
-
-See the final section of the notebook for the exercises specified in the Lab Activity Book
-(§6 (page 21–25)). Submit your Colab link or `.ipynb` file as instructed.
-
-## 🔗 References
-
-- Lab Activity Book (23CSE301), §6 (page 21–25).
-- Scikit-learn user guide: <https://scikit-learn.org/stable/user_guide.html>
-
----
-
-## ☁️ Run in Google Colab
-
-1. Upload the entire `ML-Lab-Activities-Complete` folder to your Google Drive.
-2. In Colab: `File → Open notebook → Google Drive → 02-Logistic-Regression/02_Logistic_Regression.ipynb`.
-3. The **first code cell** auto-mounts Drive, chdir's to this experiment's folder,
-   and creates an `outputs/` subfolder. All figures are auto-saved there.
+1. Upload the entire ML-Lab-Activities folder to your Google Drive.
+2. File -> Open notebook -> Google Drive ->
+   02-Logistic-Regression/<notebook>.ipynb
+3. Each notebook is pure Python code. Just run all cells.
