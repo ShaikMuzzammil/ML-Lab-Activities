@@ -1,47 +1,78 @@
-# 05-KNN
+05-KNN
+=======
 
-> **Course:** 23CSE301 — Machine Learning Lab  
-> **Topic:** K-Nearest Neighbors Classifier  
-> **Lab Book Reference:** §9 K-Nearest Neighbors, page 38–43
+Lab Book Reference: Section 9 K-Nearest Neighbors (page 38-43)
 
----
 
-## 📓 Notebooks
+Notebooks
+---------
 
-### Main
-| Notebook | Topic | Dataset |
-|----------|-------|---------|
-| `05_KNN_Classifier.ipynb` | KNN (K-sweep 1-5) on WDBC Breast Cancer | `datasets/Breast_Cancer_Detection_Classification_Master.csv` (569 rows, 32 cols) |
+05_KNN_Classifier.ipynb
+    Main notebook.
+    KNN on Wisconsin Diagnostic Breast Cancer (WDBC) dataset.
+    Sweeps K = 1, 2, 3, 4, 5 with Minkowski distance (p=2, equivalent
+    to Euclidean). Reports the best K = 5 with accuracy ~ 0.96.
+    Dataset: Breast_Cancer_Detection_Classification_Master.csv
+            (569 rows, 32 cols).
 
-### Exercises (§9.6, page 43)
-| Notebook | Lab Book Exercise | Dataset |
-|----------|-------------------|---------|
-| `05_Q1_Digit_Recognition.ipynb` | §9.6 Q1: Hand-written digit recognition (digits 0-9) | `sklearn.datasets.load_digits()` (1 797 samples, 8×8 pixels) |
-| `05_Q2_Euclidean_Distance.ipynb` | §9.6 Q2: Euclidean distance + 1-NN classification | `datasets/brightness_saturation.csv` (7-row table from lab book) |
+05_Q1_Digit_Recognition.ipynb
+    Lab Book Section 9.6 Exercise 1 (page 43).
+    Hand-written digit recognition using KNN.
+    Dataset: sklearn.datasets.load_digits (1797 samples, 8x8 pixels).
+    Reference: github.com/pbharrin/machinelearninginaction
 
-## 📊 Datasets Folder
+05_Q2_Euclidean_Distance.ipynb
+    Lab Book Section 9.6 Exercise 2 (page 43).
+    Calculate the Euclidean distance between a new entry and the
+    existing values; classify the new entry with 1-NN.
+    Dataset: brightness_saturation.csv (7-row table from the lab book).
 
-| File | Rows | Cols | Description |
-|------|------|------|-------------|
-| `Breast_Cancer_Detection_Classification_Master.csv` | 569 | 32 | WDBC: `id`, `diagnosis`, 30 numeric features |
-| `brightness_saturation.csv` | 7 | 3 | `Brightness, Saturation, Class` (Red/Blue) — table from lab book page 43 |
+      Brightness  Saturation  Class
+      40          20          Red
+      50          50          Blue
+      60          90          Blue
+      10          25          Red
+      70          70          Blue
+      60          10          Red
+      25          80          Blue
 
-## 🖼️ Outputs Folder
-- `figure_001.png` … `003.png` — main notebook (CM, accuracy-vs-K, K-sweep bar)
-- `Q1_Digit_Recognition_figure_001.png` … `003.png` — sample digits, CM, misclassifications
-- `Q2_Euclidean_figure_001.png` — Brightness vs Saturation scatter
 
-## 🔍 Expected Output
-| Notebook | Accuracy |
-|----------|---------:|
-| Main (K=5) | ≈ 0.96 (matches lab book page 42 exactly) |
-| Q1 Digit Recognition | ≈ 0.98 |
+Datasets
+--------
 
-## ▶️ How to Run
-```bash
+Breast_Cancer_Detection_Classification_Master.csv
+                       569 rows x 32 cols   UCI WDBC
+                                              id, diagnosis (M/B),
+                                              30 numeric features
+brightness_saturation.csv
+                       7 rows x 3 cols       Brightness, Saturation,
+                                              Class (Red/Blue)
+                                              - table from lab book
+
+
+How to Run
+----------
+
 jupyter notebook 05-KNN/<notebook>.ipynb
-```
 
-## 🔗 References
-- Lab Activity Book §9, page 38–43.
-- sklearn digits dataset: <https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html>
+Headless:
+jupyter nbconvert --to notebook --execute \
+  05-KNN/<notebook>.ipynb \
+  --output <notebook>.ipynb
+
+
+Expected Results
+----------------
+
+Main notebook (K=5)         accuracy ~ 0.96  (matches lab book page 42)
+Q1 Digit Recognition         accuracy ~ 0.98
+
+
+References
+----------
+
+Lab Activity Book Section 9 (page 38-43).
+sklearn digits dataset:
+  https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_digits.html
+UCI WDBC:
+  https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic
