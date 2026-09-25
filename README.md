@@ -1,3 +1,5 @@
+<h2><b>NAME: SHAIK MUZZAMMIL</b><br>
+<b>ROLL NO: CH.SC.U4CSE24041</b></h2>
 # 📚 Machine Learning Lab Activities (23CSE301)
 
 > **Department of Computer Science & Engineering**  
