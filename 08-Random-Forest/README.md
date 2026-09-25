@@ -1,45 +1,64 @@
-# 08-Random-Forest
+08-Random-Forest
+================
 
-> **Course:** 23CSE301 — Machine Learning Lab  
-> **Topic:** Ensemble Learning with Random Forests  
-> **Lab Book Reference:** §12 Random Forests, page 53–58
+Lab Book Reference: Section 12 Random Forests (page 53-58)
 
----
 
-## 📓 Notebooks
+Notebooks
+---------
 
-### Main
-| Notebook | Topic | Dataset |
-|----------|-------|---------|
-| `08_Random_Forest_Classifier.ipynb` | Random Forest on WDBC Breast Cancer | `datasets/Breast_Cancer_Detection_Classification_Master.csv` (569 rows, 32 cols) |
+08_Random_Forest_Classifier.ipynb
+    Main notebook.
+    Random Forest on Wisconsin Diagnostic Breast Cancer (WDBC).
+    Uses n_estimators=10 and criterion='entropy' (matches lab book
+    page 56). Reports accuracy, precision, recall, F1, and the
+    confusion matrix. Visualises one of the constituent decision trees,
+    studies feature importances, and reports the Out-of-Bag (OOB) score.
+    Dataset: Breast_Cancer_Detection_Classification_Master.csv
+            (569 rows, 32 cols).
 
-### Exercises (§12.6, page 58)
-| Notebook | Lab Book Exercise | Dataset |
-|----------|-------------------|---------|
-| `08_Q1_Fruit_Basket.ipynb` | §12.6 Q1: Fruit basket ensemble (which fruit is taken most often?) | `datasets/fruit_basket.csv` (200 rows, 5 cols) |
+08_Q1_Fruit_Basket.ipynb
+    Lab Book Section 12.6 Exercise 1 (page 58).
+    Consider a fruit basket as the data. N samples are taken with
+    replacement; an individual decision tree is constructed on each
+    sample. Each tree produces a class prediction; the Random Forest
+    takes the majority vote. Which fruit is likely to be taken most
+    often?
+    Dataset: fruit_basket.csv (200 rows, 5 cols).
+    Features: colour, size_cm, weight_g, sweetness, fruit.
 
-## 📊 Datasets Folder
 
-| File | Rows | Cols | Description |
-|------|------|------|-------------|
-| `Breast_Cancer_Detection_Classification_Master.csv` | 569 | 32 | WDBC: `id`, `diagnosis`, 30 features |
-| `fruit_basket.csv` | 200 | 5 | `color, size_cm, weight_g, sweetness, fruit` — synthetic fruit dataset |
+Datasets
+--------
 
-## 🖼️ Outputs Folder
-- `figure_001.png` … `004.png` — main notebook (CM, single tree, importance, accuracy-vs-n_trees)
-- `Q1_Fruit_Basket_figure_001.png` … `003.png` — CM, tree, importance
+Breast_Cancer_Detection_Classification_Master.csv
+                       569 rows x 32 cols   UCI WDBC
+                                              id, diagnosis (M/B),
+                                              30 numeric features
+fruit_basket.csv       200 rows x 5 cols    colour, size_cm, weight_g,
+                                              sweetness, fruit
 
-## 🔍 Expected Output
-| Notebook | Accuracy |
-|----------|---------:|
-| Main (n_estimators=10) | ≈ 0.99 (matches lab book page 56) |
-| Q1 Fruit Basket | ≈ 0.85-0.95 |
 
-## ▶️ How to Run
-```bash
+How to Run
+----------
+
 jupyter notebook 08-Random-Forest/<notebook>.ipynb
-```
 
-## 🔗 References
-- Lab Activity Book §12, page 53–58.
-- Breiman (2001), *Random Forests*, Machine Learning 45(1): 5–32.
+Headless:
+jupyter nbconvert --to notebook --execute \
+  08-Random-Forest/<notebook>.ipynb \
+  --output <notebook>.ipynb
+
+
+Expected Results
+----------------
+
+Main notebook (n_estimators=10)    accuracy ~ 0.99  (matches lab book page 56)
+Q1 Fruit Basket                     accuracy ~ 0.85-0.95
+
+
+References
+----------
+
+Lab Activity Book Section 12 (page 53-58).
+Breiman (2001), "Random Forests", Machine Learning 45(1): 5-32.

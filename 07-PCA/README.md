@@ -1,48 +1,83 @@
-# 07-PCA
+07-PCA
+======
 
-> **Course:** 23CSE301 — Machine Learning Lab  
-> **Topic:** Principal Component Analysis (Dimensionality Reduction)  
-> **Lab Book Reference:** §11 Principal Component Analysis, page 49–52
+Lab Book Reference: Section 11 Principal Component Analysis (page 49-52)
 
----
 
-## 📓 Notebooks
+Notebooks
+---------
 
-### Main
-| Notebook | Topic | Dataset |
-|----------|-------|---------|
-| `07_PCA.ipynb` | PCA on the 30-feature Breast Cancer dataset (2-D & 3-D projection) | `sklearn.datasets.load_breast_cancer()` (569 rows, 30 features) |
+07_PCA.ipynb
+    Main notebook.
+    PCA on the 30-feature Breast Cancer dataset from sklearn.
+    Reduces dimensionality to 2 and 3 principal components for
+    visualisation. Examines how much variance each PC explains.
+    The 3 PCs explain 72.64% of total variance, matching the lab book.
 
-### Exercises (§11.4, page 52)
-| Notebook | Lab Book Exercise | Dataset |
-|----------|-------------------|---------|
-| `07_Q1_Real_Estate.ipynb` | §11.4 Q1: Maggie's real-estate problem (why are properties unsold?) | `datasets/real_estate.csv` (20 640 rows — California housing + synthetic `months_unsold`) |
-| `07_Q2_Identify_PC.ipynb` | §11.4 Q2: Identify which variable is the principal component | `datasets/variable_table.csv` (9×3 table from lab book) |
+07_Q1_Real_Estate.ipynb
+    Lab Book Section 11.4 Exercise 1 (page 52).
+    Maggie is a real-estate agent puzzled about why some of the
+    properties her company manages have not been sold for more than
+    six months. Apply PCA to a real-estate dataset and identify the
+    principal components that explain the most variance in property
+    data.
+    Dataset: real_estate.csv (20640 rows - California housing +
+             synthetic months_unsold).
 
-## 📊 Datasets Folder
+07_Q2_Identify_PC.ipynb
+    Lab Book Section 11.4 Exercise 2 (page 52).
+    For the 9x3 variable-loading table below, identify which variable
+    is the principal component (highest absolute loading on PC1).
 
-| File | Rows | Cols | Description |
-|------|------|------|-------------|
-| `real_estate.csv` | 20 640 | 10 | California housing features + `MedHouseVal` + synthetic `months_unsold` |
-| `variable_table.csv` | 9 | 4 | `Variable, PC1, PC2, PC3` — the lab-book loading table |
+      Variable       PC1     PC2     PC3
+      Climate        0.190   0.017   0.207
+      Housing        0.544   0.020   0.204
+      Health         0.782  -0.605   0.144
+      Crime          0.365   0.294   0.585
+      Transportation 0.585   0.085   0.234
+      Education      0.394  -0.273   0.027
+      Arts           0.985   0.126  -0.111
+      Recreation     0.520   0.402   0.519
+      Economy        0.142   0.150   0.239
 
-## 🖼️ Outputs Folder
-- `figure_001.png` … `004.png` — main notebook (2-D PCA, 3-D PCA, EVR, loadings heatmap)
-- `Q1_Real_Estate_figure_001.png` … `003.png` — EVR, 2-D scatter, loadings
-- `Q2_Identify_PC_figure_001.png` … `002.png` — loadings bar, L2-norm bar
+    Result: Arts (|PC1| = 0.985) is the principal variable.
 
-## 🔍 Expected Output
-| Notebook | Result |
-|----------|-------:|
-| Main | EVR for 3 PCs = [0.443, 0.190, 0.094] — exactly matches lab book page 52 |
-| Q1 Real Estate | ~10 PCs needed for 95% variance |
-| Q2 Identify PC | "Arts" has the highest |PC1| loading = 0.985 — principal variable |
 
-## ▶️ How to Run
-```bash
+Datasets
+--------
+
+real_estate.csv     20640 rows x 10 cols    California housing features
+                                              + MedHouseVal + months_unsold
+variable_table.csv  9 rows x 4 cols         Variable, PC1, PC2, PC3
+                                              (lab book table)
+
+
+How to Run
+----------
+
 jupyter notebook 07-PCA/<notebook>.ipynb
-```
 
-## 🔗 References
-- Lab Activity Book §11, page 49–52.
-- sklearn `fetch_california_housing` for the real-estate stand-in.
+Headless:
+jupyter nbconvert --to notebook --execute \
+  07-PCA/<notebook>.ipynb \
+  --output <notebook>.ipynb
+
+
+Expected Results
+----------------
+
+Main notebook EVR for 3 PCs:
+  [0.44272026, 0.18971182, 0.09393163]
+  (matches lab book page 52 exactly)
+
+Q1 Real Estate         ~10 PCs needed for 95% variance
+Q2 Identify PC         "Arts" has the highest |PC1| loading = 0.985
+
+
+References
+----------
+
+Lab Activity Book Section 11 (page 49-52).
+sklearn PCA documentation:
+  https://scikit-learn.org/stable/modules/generated/sklearn.decomposition.PCA.html
+sklearn fetch_california_housing for the real-estate stand-in.
