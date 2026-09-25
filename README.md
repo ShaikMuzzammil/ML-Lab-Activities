@@ -5,8 +5,7 @@
 > **Department of Computer Science & Engineering**  
 > **Course:** 23CSE301 — Machine Learning (3-0-2-4)  
 > **Lab Activity Book:**Dr. Sreenivasa Chakravarthi Sangapu  
-> **Repository:** complete, ready-to-run Jupyter notebooks for every
-> experiment and every exercise in the Lab Activity Book.
+
 
 ---
 
